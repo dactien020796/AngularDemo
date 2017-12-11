@@ -20,9 +20,10 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
         .state("home",
             {
                   url:"/" ,
-                  templateUrl: "views/home.jsp",
+                  templateUrl: "/DemoAngular/views/admin/home.jsp",
                   controller: "HomeCtrl",
                   data: {
+                	  // không cần login vẫn vào đc
                       requireLogin: false
                   }
             }
@@ -31,7 +32,7 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
         .state("about",
             {
                 url:"/about",
-                templateUrl: "views/about.jsp",
+                templateUrl: "/DemoAngular/views/about.jsp",
                 controller: "AboutCtrl",
                 data: {
                     requireLogin: false
@@ -41,7 +42,7 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
         .state("login",
             {
                 url:"/login",
-                templateUrl: "views/login.jsp",
+                templateUrl: "/DemoAngular/views/admin/login.jsp",
                 controller: "LoginCtrl",
                 data: {
                     requireLogin: false
@@ -52,13 +53,24 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
         .state("product-detail",
             {
                   url:"/product-detail" ,
-                  templateUrl: "views/product-detail.jsp",
+                  templateUrl: "/DemoAngular/views/admin/product-detail.jsp",
                   controller: "Product-Detail-Controller",
                   data: {
                       requireLogin: false
                   }
             }
         )
+        .state("admin/index",
+            {
+                  url:"/admin/index" ,
+                  templateUrl: "/DemoAngular/views/admin/index.jsp",
+                  controller: "Admin-Controller",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
+       
 });
 
 app.run(function ($rootScope, $state) {

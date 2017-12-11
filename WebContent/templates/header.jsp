@@ -16,9 +16,9 @@
 			</div>
 			<div class="shopping_cart">
 				<div class="cart">
-					<a href="#" title="View my shopping cart" rel="nofollow"> <strong
-						class="opencart"> </strong> <span class="cart_title">Cart</span> <span
-						class="no_product">(empty)</span>
+					<a ui-sref="shopping-cart" title="Xem giỏ hàng"
+						rel="nofollow"> <strong class="opencart"> </strong> <!-- 				<span class="cart_title">Giỏ hàng</span> -->
+						<span id="count">(${cart.count}</span> sản phẩm)
 					</a>
 				</div>
 			</div>
@@ -84,7 +84,7 @@
 		<a id="touch-menu" class="mobile-menu" href="#">Menu</a>
 		<nav>
 			<ul class="menu list-unstyled">
-				<li><a href="home/index.php">TRANG CHỦ</a></li>
+				<li><a ui-sref="home">TRANG CHỦ</a></li>
 
 				<li class="activate"><a href="#">HÃNG</a>
 					<ul class="sub-menu list-unstyled sub-menu2">

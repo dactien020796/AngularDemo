@@ -1,9 +1,13 @@
 package mobileshop.controller;
 
+import java.util.Collection;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,10 +30,19 @@ public class ShoppingCartController {
 		return json;
 	}
 	
+	@ResponseBody
 	@RequestMapping("view")
-	public String view(ModelMap model) {
+	public Collection<SanPham> view(ModelMap model) {
 		model.addAttribute("cart",cart);
-		return "user/shopping-cart/view";
+//		return "user/shopping-cart/view";
+		return cart.getItems();
+	}
+	
+	@ResponseBody
+	@RequestMapping("get")
+	public Collection<SanPham> get() {
+		String temp = "";
+		return cart.getItems();
 	}
 	
 	@ResponseBody
