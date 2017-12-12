@@ -1,5 +1,7 @@
 package mobileshop.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -35,14 +38,20 @@ public class HoaDonController {
 	public HoaDon checkout(ModelMap model, HttpSession session) {
 		KhachHang user = (KhachHang) session.getAttribute("user");
 		
+
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 		HoaDon order = new HoaDon();
 		order.setTongTien(cart.getAmount());
-		order.setNgayDat(new Date());
-		
-		Date date = new Date();
-		date.setDate(date.getDate()+2);
-		order.setNgayGiao(date);
-		
+		try {
+			order.setNgayDat(formatter.parse(formatter.format(new Date())));
+			
+			Date date = new Date();
+			date.setDate(date.getDate()+2);
+			order.setNgayGiao(formatter.parse(formatter.format(date)));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		order.setKhachHang(user);
 		order.setNguoiNhan(user.getHoTen());
 		
@@ -51,19 +60,32 @@ public class HoaDonController {
 		return order;
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="checkout", method=RequestMethod.POST)
-	public String checkout(ModelMap model, @ModelAttribute("order") HoaDon order) {
-		
+	public String checkout(ModelMap model,
+			HttpSession session,
+			@RequestParam("nguoiNhan") String nguoiNhan,
+			@RequestParam("ngayDat") Date ngayDat,
+			@RequestParam("ngayGiao") Date ngayGiao,
+			@RequestParam("diaChi") String diaChi,
+			@RequestParam("tongTien") Integer tongTien,
+			@RequestParam("ghiChu") String ghiChu) {
+		HoaDon order = new HoaDon();
+		KhachHang user = (KhachHang) session.getAttribute("user");
+		order.setKhachHang(user);
+		order.setDiaChi(diaChi);
+		order.setGhiChu(ghiChu);
+		order.setNgayDat(ngayDat);
+		order.setNgayGiao(ngayGiao);
+		order.setNguoiNhan(nguoiNhan);
+		order.setTongTien(tongTien);
 		try {
 			hoaDonService.purchase(order, cart);
 			cart.clear();
-			model.addAttribute("message","Dat hang thanh cong");
-			
-			return "redirect:/order/detail/"+order.getMa()+".php";// chuyen ve chi tiet don hang
+			return "Dat hang thanh cong";
 		}
 		catch (Exception e) {
-			model.addAttribute("message","Dat hang that bai");
-			return "user/order/checkout";
+			return "Dat hang that bai";
 		}
 	}
 

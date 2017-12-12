@@ -7,17 +7,18 @@ app.controller('LoginCtrl', function($rootScope, $scope, $location, $http) {
 		//    $http.post
 		var temp = "account/login.php?id=" + id + "&password=" + password;
 		$http.post(temp).success(function(data) {
-			if (data == "Dang nhap thanh cong") {
-				location.reload(true);
-			} else
-				alert(data);
+//			if (data == "Dang nhap thanh cong") {
+//				window.location = "http://localhost:9999/DemoAngular";
+//			} else
+			alert(data);
+			window.location = "http://localhost:9999/DemoAngular";
 		});
 	};
 
 	$scope.logoff = function(id, password) {
 		//    $http.post
 		$http.get("account/logoff.php").success(function(data) {
-			location.reload(true);
+			window.location = "http://localhost:9999/DemoAngular";
 		});
 	};
 

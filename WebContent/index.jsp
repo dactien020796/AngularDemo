@@ -24,6 +24,7 @@
 	<link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
 	<link href="/DemoAngular/css/flexslider.css" rel='stylesheet' type='text/css' />
+	<script src="https://cdn.jsdelivr.net/npm/moment@2.19.4/moment.js" type="text/javascript"></script>
 </head>
 <body ng-app="app">
 	<div class="wrap">
@@ -47,7 +48,9 @@
 	<script src="/DemoAngular/script/user/controllers/register.controller.js"></script>
 	<script src="/DemoAngular/script/user/controllers/shopping-cart.controller.js"></script>
 	<script src="/DemoAngular/script/user/controllers/check-out.controller.js"></script>
-
+	<script src="/DemoAngular/script/user/controllers/change-password.controller.js"></script>
+	<script src="/DemoAngular/script/user/controllers/edit-account.controller.js"></script>
+	
 	<!-- Service -->
 	<script src="/DemoAngular/script/user/services/authentication.service.js"></script>
 	<script src="/DemoAngular/script/user/services/product-detail.service.js"></script>

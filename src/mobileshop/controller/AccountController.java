@@ -152,39 +152,31 @@ public class AccountController {
 		return "logoff";
 	}
 	
+	@ResponseBody
 	@RequestMapping("edit")
-	public String edit(ModelMap model , HttpSession httpSession) {
+	public KhachHang edit(ModelMap model , HttpSession httpSession) {
 		KhachHang user = (KhachHang) httpSession.getAttribute("user");
-		model.addAttribute("user", user);
-		return "user/account/edit";
+		return user;
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="edit", method=RequestMethod.POST)
 	public String edit(ModelMap model, 
 			HttpSession httpSession,
-			@ModelAttribute("user") KhachHang user,
-			@RequestParam("uphinhAnh") MultipartFile photo) {
+			@RequestParam("hoTen") String hoTen,
+			@RequestParam("email") String email
+			) {
+		KhachHang user = (KhachHang) httpSession.getAttribute("user");
+		user.setHoTen(hoTen);
+		user.setEmail(email);
 		try {
-			if (!photo.isEmpty()) {
-				//Xóa file hình ảnh cũ => tránh nặng server
-				String path = app.getRealPath("/images/customers/" + user.getHinhAnh());
-				File oldFile = new File(path);
-				oldFile.delete();
-				
-				String filename = System.currentTimeMillis() + "-" + photo.getOriginalFilename();
-				user.setHinhAnh(filename);
-				path = app.getRealPath("/images/customers/" + user.getHinhAnh());
-				photo.transferTo(new File(path));
-				//System.out.println(path);
-			}
 			khachHangService.update(user);
-			model.addAttribute("message", "Cập nhật thành công");
 			httpSession.setAttribute("user", user);
+			return "Cap nhat thanh cong";
 		} catch (Exception e) {
 			// TODO: handle exception
-			model.addAttribute("message", "Cập nhật thất bại");
+			return "Cap nhat that bai";
 		}
-		return "user/account/edit";
 	}
 	
 	/**
@@ -229,34 +221,28 @@ public class AccountController {
 		return "user/account/change";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="change", method=RequestMethod.POST)
 	public String change(ModelMap model,
-			@RequestParam("ma") String id,
-			@RequestParam("matKhau") String password,
+			@RequestParam("password") String password,
 			@RequestParam("password1") String password1,
 			@RequestParam("password2") String password2,
 			HttpSession httpSession) {
 		if (password1.equals(password2)) {
-			try {
-				KhachHang user = khachHangService.get(id);
-				if (password.equals(user.getMatKhau())) {
-					user.setMatKhau(password1);
-					khachHangService.update(user);
-					
-					model.addAttribute("message", "Đổi mật khẩu thành công");
-					httpSession.setAttribute("user", user);
-				}
-				else {
-					model.addAttribute("message", "Sai mật khẩu");
-				}
-			} catch (Exception e) {
-				// TODO: handle exception
-				model.addAttribute("message", "Sai tên đăng nhập");
+			KhachHang user = (KhachHang) httpSession.getAttribute("user");
+			if (password.equals(user.getMatKhau())) {
+				user.setMatKhau(password1);
+				khachHangService.update(user);
+				
+				httpSession.setAttribute("user", user);
+				return "Cap nhat mat khau thanh cong";
+			}
+			else {
+				return "Sai mat khau hien tai";
 			}
 		}
 		else {
-			model.addAttribute("message", "Xác nhận mật khẩu không đúng");
+			return "Xac nhan mat khau khong chinh xac";
 		}
-		return "user/account/change";
 	}
 }

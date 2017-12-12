@@ -33,13 +33,13 @@
 						<c:choose>
 							<c:when test="${empty sessionScope.user}">
 								<li><a ui-sref="login">Đăng nhập</a></li>
-								<li><a href="account/register.php">Đăng ký</a></li>
+								<li><a ui-sref="login">Đăng ký</a></li>
 								<li><a href="account/forgot.php">Quên mật khẩu</a></li>
 							</c:when>
 							<c:otherwise>
 								<li><a ng-controller="LoginCtrl" ng-click="logoff();">Đăng xuất</a></li>
-								<li><a href="account/change.php">Đổi mật khẩu</a></li>
-								<li><a href="account/edit.php">Chỉnh sửa hồ sơ</a></li>
+								<li><a ui-sref="change-password">Đổi mật khẩu</a></li>
+								<li><a ui-sref="edit-account">Chỉnh sửa hồ sơ</a></li>
 								<li class="divider"></li>
 								<li><a href="order/list.php">Đơn hàng</a></li>
 								<li><a href="order/items.php">Hàng đã mua</a></li>

@@ -81,6 +81,28 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
                   }
             }
         )
+        // Change password
+        .state("change-password",
+            {
+                  url:"/change-password" ,
+                  templateUrl: "views/user/change-password.jsp",
+                  controller: "ChangePasswordCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
+        // Edit account
+        .state("edit-account",
+            {
+                  url:"/edit-account" ,
+                  templateUrl: "views/user/edit-account.jsp",
+                  controller: "EditAccountCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
 });
 
 app.run(function ($rootScope, $state) {
