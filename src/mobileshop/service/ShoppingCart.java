@@ -1,5 +1,6 @@
 package mobileshop.service;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +16,7 @@ import mobileshop.entity.SanPham;
 @Component("cart")
 // de ShoppingCart nay trong session: cho tung khach hang
 @Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
-public class ShoppingCart {
+public class ShoppingCart implements Serializable {
 	@Autowired
 	SanPhamService sanPhamService;
 	Map<Integer, SanPham> map = new HashMap<Integer, SanPham>();

@@ -31,18 +31,15 @@ public class ShoppingCartController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("view")
+	@RequestMapping(value="view", method=RequestMethod.GET)
 	public Collection<SanPham> view(ModelMap model) {
-		model.addAttribute("cart",cart);
-//		return "user/shopping-cart/view";
 		return cart.getItems();
 	}
 	
 	@ResponseBody
-	@RequestMapping("get")
-	public Collection<SanPham> get() {
-		String temp = "";
-		return cart.getItems();
+	@RequestMapping("get-amount")
+	public int getAmount() {
+		return cart.getAmount();
 	}
 	
 	@ResponseBody

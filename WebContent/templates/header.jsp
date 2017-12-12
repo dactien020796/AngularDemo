@@ -1,5 +1,7 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<c:set var="cart" value="${sessionScope['scopedTarget.cart']}" />
+
 <div class="header">
 	<div class="header_top">
 		<div class="logo">
