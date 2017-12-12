@@ -20,7 +20,7 @@
 			p:driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
 			p:url="jdbc:sqlserver://localhost; Database=MobileShop"
 			p:username="sa"
-			p:password="123456">
+			p:password="1234">
 	</bean>
 	
 	<!-- Hibernate Session Factory -->

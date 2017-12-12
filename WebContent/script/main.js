@@ -23,6 +23,7 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
                   templateUrl: "views/home.jsp",
                   controller: "HomeCtrl",
                   data: {
+                	  // không cần login vẫn vào đc
                       requireLogin: false
                   }
             }
@@ -59,6 +60,7 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
                   }
             }
         )
+       
 });
 
 app.run(function ($rootScope, $state) {

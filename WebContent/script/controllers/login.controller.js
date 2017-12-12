@@ -3,7 +3,7 @@ app.controller('LoginCtrl', function($rootScope, $scope, $location, $http) {
 	this.cancel = $scope.$dismiss;
 
 	var result = "";
-	$scope.submit = function(id, password) {
+	$scope.login = function(id, password) {
 		//    $http.post
 		var temp = "account/login.php?id=" + id + "&password=" + password;
 		$http.post(temp).success(function(data) {
@@ -20,4 +20,18 @@ app.controller('LoginCtrl', function($rootScope, $scope, $location, $http) {
 			
 		});
 	};
+	
+	 // dang ki
+	$scope.register = function(username,hoten,matkhau,email) {
+    	//    $http.post
+    	var temp = "account/register.php?username=" + username + "&hoten=" + hoten + "&matkhau=" + matkhau + "&email=" + email;
+    	$http.post(temp).success(function(data) {
+    		if (data == "Dang ki thanh cong") {
+    			alert(data);
+    		} else
+    			alert(data);
+    	});
+    };
+	
+	
 });

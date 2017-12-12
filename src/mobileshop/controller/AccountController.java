@@ -1,5 +1,6 @@
 package mobileshop.controller;
 
+
 import java.io.File;
 
 import javax.servlet.ServletContext;
@@ -42,35 +43,29 @@ public class AccountController {
 		return "user/account/login-register";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="register", method=RequestMethod.POST)
 	public String register(ModelMap model,
-			@ModelAttribute("user") KhachHang user,
-			HttpServletRequest request,
-			@RequestParam("uphinhAnh") MultipartFile photo) {
+			@RequestParam("username") String username,
+			@RequestParam("hoten") String hoten,
+			@RequestParam("matkhau") String matkhau,
+			@RequestParam("email") String email,
+		
+			HttpServletRequest request) {
 		try {
-			//xử lý upload photo
-			//nếu photo có dữ liệu thì upload
-			System.out.println("Test");
-			if (!photo.isEmpty()) {
-				String fileName = System.currentTimeMillis() + "-" + photo.getOriginalFilename();
-				user.setHinhAnh(fileName);
+				KhachHang user = new KhachHang();
+				user.setMa(username);
+				user.setHoTen(hoten);
+				user.setMatKhau(matkhau);
+				user.setEmail(email);
 				
-				//Lưu ảnh vào thư mục
-				String path = app.getRealPath("/images/customers/" + user.getHinhAnh());
-				photo.transferTo(new File(path));
-			}
-			//nếu ko upload photo thì set hình mặc định
-			else {
-				user.setHinhAnh("user.png");
-			}
-			
-			user.setTrangThai(false);
-			khachHangService.insert(user);
-			model.addAttribute("message", "Đăng ký thành công");
-			
-			/**
-			 * Gửi mail kích hoạt tài khoản
-			 * */
+				user.setTrangThai(false);
+				khachHangService.insert(user);
+				model.addAttribute("message", "Đăng ký thành công");
+				
+				/**
+				 * Gửi mail kích hoạt tài khoản
+				 * */
 			
 			try {
 				String url = request.getRequestURL().toString().replace("register", "activate/" + user.getMa());
@@ -79,16 +74,21 @@ public class AccountController {
 				String body = "Click vào đây liên kết sau đây để kích hoạt tài khoản<hr>" +
 						"<a href='"+url+"'>Kích hoạt tài khoản</a>";
 				mailerService.send(to, subject, body);
-				model.addAttribute("message", "Gửi mail thành công, vui lòng kiểm tra email để kích hoạt tài khoản");
+				//model.addAttribute("message", "Gửi mail thành công, vui lòng kiểm tra email để kích hoạt tài khoản");
+				return "Gui mail thanh cong, vui";
 			} catch (Exception e) {
 				// TODO: handle exception
-				model.addAttribute("message", "Không gửi được mail");
+				//model.addAttribute("message", "Không gửi được mail");
+				return "Khong gui duoc mail";
 			}
-		} catch (Exception e) {
+			
+		
+		} 
+		catch (Exception e) {
 			// TODO: handle exception
-			model.addAttribute("message", "Đăng ký thất bại");
+			//model.addAttribute("message", "Đăng ký thất bại");
+			return "Dang ki that bai";
 		}
-		return "user/account/login-register";
 	}
 	
 	/**

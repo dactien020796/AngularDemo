@@ -44,6 +44,7 @@
 	<script src="script/controllers/about.controller.js"></script>
 	<script src="script/controllers/login.controller.js"></script>
 	<script src="script/controllers/product-detail.controller.js"></script>
+	<script src="script/controllers/register.controller.js"></script>
 
 	<!-- Service -->
 	<script src="script/services/authentication.service.js"></script>
