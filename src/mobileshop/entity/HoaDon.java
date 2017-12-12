@@ -15,6 +15,8 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="HoaDons")
 public class HoaDon {
@@ -37,6 +39,7 @@ public class HoaDon {
 	@JoinColumn(name="MaKH")
 	KhachHang khachHang;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="hoaDon")
 	Collection<CTHoaDon> cTHoaDons;
 

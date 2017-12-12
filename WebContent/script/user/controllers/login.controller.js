@@ -3,12 +3,12 @@ app.controller('LoginCtrl', function($rootScope, $scope, $location, $http) {
 	this.cancel = $scope.$dismiss;
 
 	var result = "";
-	$scope.submit = function(id, password) {
+	$scope.login = function(id, password) {
 		//    $http.post
 		var temp = "account/login.php?id=" + id + "&password=" + password;
 		$http.post(temp).success(function(data) {
 			if (data == "Dang nhap thanh cong") {
-				window.location.replace("http://localhost:9999/DemoAngular/#/");
+				location.reload(true);
 			} else
 				alert(data);
 		});
@@ -17,7 +17,7 @@ app.controller('LoginCtrl', function($rootScope, $scope, $location, $http) {
 	$scope.logoff = function(id, password) {
 		//    $http.post
 		$http.get("account/logoff.php").success(function(data) {
-			
+			location.reload(true);
 		});
 	};
 

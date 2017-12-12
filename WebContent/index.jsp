@@ -46,6 +46,7 @@
 	<script src="/DemoAngular/script/user/controllers/product-detail.controller.js"></script>
 	<script src="/DemoAngular/script/user/controllers/register.controller.js"></script>
 	<script src="/DemoAngular/script/user/controllers/shopping-cart.controller.js"></script>
+	<script src="/DemoAngular/script/user/controllers/check-out.controller.js"></script>
 
 	<!-- Service -->
 	<script src="/DemoAngular/script/user/services/authentication.service.js"></script>

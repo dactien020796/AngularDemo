@@ -37,7 +37,7 @@
 								<li><a href="account/forgot.php">Quên mật khẩu</a></li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="" ng-click="LoginCtrl.logoff();">Đăng xuất</a></li>
+								<li><a ng-controller="LoginCtrl" ng-click="logoff();">Đăng xuất</a></li>
 								<li><a href="account/change.php">Đổi mật khẩu</a></li>
 								<li><a href="account/edit.php">Chỉnh sửa hồ sơ</a></li>
 								<li class="divider"></li>

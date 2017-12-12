@@ -61,8 +61,7 @@
 
 		<div>
 			<a class="btn btn-warning" href="shopping-cart/clear.php">Xóa hết</a>
-			<a class="btn btn-info" href="#">Continue</a> <a
-				class="btn btn-primary" href="order/checkout.php">Thanh toán</a>
+			<a class="btn btn-primary" ui-sref="check-out">Thanh toán</a>
 		</div>
 	</div>
 </div>

@@ -70,6 +70,17 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
                   }
             }
         )
+        // Check out
+        .state("check-out",
+            {
+                  url:"/check-out" ,
+                  templateUrl: "views/user/check-out.jsp",
+                  controller: "CheckOutCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
 });
 
 app.run(function ($rootScope, $state) {

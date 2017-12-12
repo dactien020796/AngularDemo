@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="KhachHangs")
 public class KhachHang {
@@ -19,6 +21,7 @@ public class KhachHang {
 	String hinhAnh;
 	Boolean trangThai;
 		
+	@JsonIgnore
 	@OneToMany(mappedBy="khachHang")
 	Collection<HoaDon> hoaDons;
 

@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.Gson;
 
 import mobileshop.entity.HoaDon;
 import mobileshop.entity.KhachHang;
@@ -27,8 +30,9 @@ public class HoaDonController {
 	@Autowired
 	HoaDonService hoaDonService;
 	
+	@ResponseBody
 	@RequestMapping("checkout")
-	public String checkout(ModelMap model, HttpSession session) {
+	public HoaDon checkout(ModelMap model, HttpSession session) {
 		KhachHang user = (KhachHang) session.getAttribute("user");
 		
 		HoaDon order = new HoaDon();
@@ -42,8 +46,9 @@ public class HoaDonController {
 		order.setKhachHang(user);
 		order.setNguoiNhan(user.getHoTen());
 		
-		model.addAttribute("order",order);
-		return "user/order/checkout";
+//		model.addAttribute("order",order);
+//		return "user/order/checkout";
+		return order;
 	}
 	
 	@RequestMapping(value="checkout", method=RequestMethod.POST)
