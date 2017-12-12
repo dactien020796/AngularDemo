@@ -18,10 +18,16 @@
 	<context:annotation-config />
 	<mvc:annotation-driven/>
 	
-<!-- 	cấu hình view  -->
-<!-- 	<bean id="viewResolver"  -->
-<!-- 		p:prefix="/WEB-INF/views/layout-dispatcher.jsp?view=" p:suffix=".jsp" -->
-<!-- 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"/> -->
+	<!-- cấu hình view  -->
+	<bean id="viewResolver"
+	  class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+		<property name="prefix">
+			<value>/WEB-INF/views/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
    	
 <!--    	cấu hình controller -->
 	<context:component-scan base-package="mobileshop.controller, mobileshop.service, mobileshop.admin.controller"/>

@@ -20,7 +20,7 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
         .state("home",
             {
                   url:"/" ,
-                  templateUrl: "views/home.jsp",
+                  templateUrl: "views/user/home.jsp",
                   controller: "HomeCtrl",
                   data: {
                 	  // không cần login vẫn vào đc
@@ -32,7 +32,7 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
         .state("about",
             {
                 url:"/about",
-                templateUrl: "views/about.jsp",
+                templateUrl: "views/user/about.jsp",
                 controller: "AboutCtrl",
                 data: {
                     requireLogin: false
@@ -42,7 +42,7 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
         .state("login",
             {
                 url:"/login",
-                templateUrl: "views/login.jsp",
+                templateUrl: "views/user/login.jsp",
                 controller: "LoginCtrl",
                 data: {
                     requireLogin: false
@@ -53,13 +53,14 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
         .state("product-detail",
             {
                   url:"/product-detail" ,
-                  templateUrl: "views/product-detail.jsp",
+                  templateUrl: "views/user/product-detail.jsp",
                   controller: "Product-Detail-Controller",
                   data: {
                       requireLogin: false
                   }
             }
         )
+       
        
 });
 

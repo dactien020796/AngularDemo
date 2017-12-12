@@ -19,8 +19,8 @@
 	<link href="/DemoAngular/css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="/DemoAngular/css/menu.css" rel="stylesheet" type="text/css" media="all" />
 	<script src="/DemoAngular/js/script.js" type="text/javascript"></script>
-	<script type="/DemoAngular/text/javascript" src="js/move-top.js"></script>
-	<script type="/DemoAngular/text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript" src="/DemoAngularjs/move-top.js"></script>
+	<script type="text/javascript" src="/DemoAngular/js/easing.js"></script>
 	<link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
 	<link href="/DemoAngular/css/flexslider.css" rel='stylesheet' type='text/css' />
@@ -38,17 +38,17 @@
 	<script src="/DemoAngular/js/angular-jwt.min.js"></script>
 	<script src="/DemoAngular/js/angular-storage.min.js"></script>
 	<!-- Our Website Javascripts -->
-	<script src="/DemoAngular/script/user/main.js"></script>
+	<script src="/DemoAngular/script/admin/app-admin.js"></script>
 	<!-- Controllers -->
-	<script src="/DemoAngular/script/user/controllers/home.controllers.js"></script>
-	<script src="/DemoAngular/script/user/controllers/about.controller.js"></script>
-	<script src="/DemoAngular/script/user/controllers/login.controller.js"></script>
-	<script src="/DemoAngular/script/user/controllers/product-detail.controller.js"></script>
-	<script src="/DemoAngular/script/user/controllers/register.controller.js"></script>
+	<script src="/DemoAngular/script/admin/controllers/home.controllers.js"></script>
+	<script src="/DemoAngular/script/admin/controllers/about.controller.js"></script>
+	<script src="/DemoAngular/script/admin/controllers/login.controller.js"></script>
+	<script src="/DemoAngular/script/admin/controllers/product-detail.controller.js"></script>
+	<script src="/DemoAngular/script/admin/controllers/register.controller.js"></script>
 
 	<!-- Service -->
-	<script src="/DemoAngular/script/user/services/authentication.service.js"></script>
-	<script src="/DemoAngular/script/user/services/product-detail.service.js"></script>
+	<script src="/DemoAngular/script/admin/services/authentication.service.js"></script>
+	<script src="/DemoAngular/script/admin/services/product-detail.service.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -69,7 +69,7 @@
 	<a href="#" id="toTop" style="display: block;"><span
 		id="toTopHover" style="opacity: 1;"></span></a>
 
-	<script defer src="js/jquery.flexslider.js"></script>
+	<script defer src="/DemoAngular/js/jquery.flexslider.js"></script>
 	<script type="text/javascript">
 // 		$(function() {
 // 			SyntaxHighlighter.all();
