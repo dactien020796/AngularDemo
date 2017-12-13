@@ -35,7 +35,7 @@
 				<div class="add-cart">
 
 					<div class="button rating">
-						<span><a href="#">Add to Cart</a></span>
+						<span><a ng-controller="ShoppingCartCtrl" ng-click="addCart(products.ma)" style="cursor: pointer;">Thêm vào giỏ hàng</a></span>
 					</div>
 					<div class="clear"></div>
 				</div>

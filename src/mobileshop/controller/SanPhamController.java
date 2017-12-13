@@ -47,10 +47,11 @@ public class SanPhamController {
 		return sanPham;
 	}
 	
+	@ResponseBody
 	@RequestMapping("search")
-	public String search(@RequestParam("Keywords") String keywords, ModelMap model) {
+	public List<SanPham> search(@RequestParam("keywords") String keywords, ModelMap model) {
 		List<SanPham> sanPhams = sanPhamService.search(keywords);
-		model.addAttribute("sanphams", sanPhams);
-		return "user/product/list";
+		//model.addAttribute("sanphams", sanPhams);
+		return sanPhams;
 	}
 }

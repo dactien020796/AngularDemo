@@ -27,8 +27,9 @@ app.controller('LoginCtrl', function($rootScope, $scope, $location, $http) {
     	//    $http.post
     	var temp = "account/register.php?username=" + username + "&hoten=" + hoten + "&matkhau=" + matkhau + "&email=" + email;
     	$http.post(temp).success(function(data) {
-    		if (data == "Dang ki thanh cong") {
+    		if (data == "Gui mail thanh cong, vui long kiem tra email va kich hoat tai khoan") {
     			alert(data);
+    			location.reload();
     		} else
     			alert(data);
     	});

@@ -32,7 +32,7 @@
 				
 				<div class="button">
 					<span> 
-						<button class="cart-button" data-cart-add={{p[0]}} ng-controller="ShoppingCartCtrl" ng-click="addCart(p[0])">Add to Cart</button>
+						<button class="cart-button" data-cart-add={{p[0]}} ng-controller="ShoppingCartCtrl" ng-click="addCart(p[0])">Thêm vào giỏ hàng</button>
 					</span>
 				</div>
             </div>

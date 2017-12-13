@@ -5,15 +5,15 @@
 <div class="header">
 	<div class="header_top">
 		<div class="logo">
-			<a href="index.html"><img src="images/logo.png" alt="" /></a>
+			<a ui-sref="home"><img src="images/logo.png" alt="" /></a>
 		</div>
 		<div class="header_top_right">
-			<div class="search_box">
+			<div class="search_box" ng-controller="HomeCtrl">
 				<form>
-					<input type="text" value="Search for Products"
+					<input ng-model="keywords" type="text" value="Search for Products"
 						onfocus="this.value = '';"
-						onblur="if (this.value == '') {this.value = 'Search for Products';}"><input
-						type="submit" value="SEARCH">
+						onblur="if (this.value == '') {this.value = 'Search for Products';}">
+					<input ng-click="search(keywords)" type="submit" value="SEARCH">
 				</form>
 			</div>
 			<div class="shopping_cart">

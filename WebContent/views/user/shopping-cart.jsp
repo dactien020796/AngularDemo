@@ -60,7 +60,7 @@
 		</table>
 
 		<div>
-			<a class="btn btn-warning" href="shopping-cart/clear.php">Xóa hết</a>
+			<a class="btn btn-warning" ng-click="clear()">Xóa hết</a>
 			<a class="btn btn-primary" ui-sref="check-out">Thanh toán</a>
 		</div>
 	</div>
