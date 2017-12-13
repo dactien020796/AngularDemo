@@ -7,8 +7,10 @@ app.controller('ShoppingCartCtrl', function($rootScope, $scope, $location, $http
 		$.ajax({
 			url: "shopping-cart/add.php",
 			data: {ma:id},
+			async: false,
 			success: function(response){
 				$("#count").html( '(' + response[0] );
+				alert("Da them");
 			},
 			dataType: "json"
 		});
@@ -42,6 +44,7 @@ app.controller('ShoppingCartCtrl', function($rootScope, $scope, $location, $http
 		$.ajax({
 			url: "shopping-cart/remove.php",
 			data: {ma:id},
+			async: false,
 			success: function(response){
 				$("#count").html('('+response[0]);
 				var value = response[1];
@@ -62,6 +65,7 @@ app.controller('ShoppingCartCtrl', function($rootScope, $scope, $location, $http
 		$.ajax({
 			url: "shopping-cart/update.php",
 			data: {ma:ma, qty: qty},
+			async: false,
 			success: function(response){
 				$("#count").html(response[0]);
 				
@@ -78,6 +82,13 @@ app.controller('ShoppingCartCtrl', function($rootScope, $scope, $location, $http
 				});
 			},
 			dataType: "json"
+		});
+	};
+	
+	$scope.clear = function() {
+		$http.get("shopping-cart/clear.php").success(function(data) {
+			alert(data);
+			location.reload();
 		});
 	};
 });

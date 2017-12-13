@@ -75,7 +75,7 @@ public class AccountController {
 						"<a href='"+url+"'>Kích hoạt tài khoản</a>";
 				mailerService.send(to, subject, body);
 				//model.addAttribute("message", "Gửi mail thành công, vui lòng kiểm tra email để kích hoạt tài khoản");
-				return "Gui mail thanh cong, vui";
+				return "Gui mail thanh cong, vui long kiem tra email va kich hoat tai kh";
 			} catch (Exception e) {
 				// TODO: handle exception
 				//model.addAttribute("message", "Không gửi được mail");
@@ -94,12 +94,13 @@ public class AccountController {
 	/**
 	 * Kích hoạt tài khoản
 	 * */
+	@ResponseBody
 	@RequestMapping("activate/{id}")
 	public String activate(@PathVariable("id") String id) {
 		KhachHang user = khachHangService.get(id);
 		user.setTrangThai(true);
 		khachHangService.update(user);
-		return "redirect:/home/index.php";
+		return "Success";
 	}
 	
 	/**

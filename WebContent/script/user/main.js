@@ -125,6 +125,17 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
                   }
             }
         )
+        // Order detail
+        .state("order-detail",
+            {
+                  url:"/order-detail/:id" ,
+                  templateUrl: "views/user/order-detail.jsp",
+                  controller: "OrderDetailCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
 
 });
 

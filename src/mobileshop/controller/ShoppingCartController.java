@@ -63,10 +63,11 @@ public class ShoppingCartController {
 		return json;
 	}
 	
+	@ResponseBody
 	@RequestMapping("clear")
 	public String clear(ModelMap model) {
 		cart.clear();
-		model.addAttribute("cart",cart);
-		return "user/shopping-cart/view";
+		//model.addAttribute("cart",cart);
+		return "Da xoa het";
 	}
 }

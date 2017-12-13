@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 
+import mobileshop.entity.CTHoaDon;
 import mobileshop.entity.HoaDon;
 import mobileshop.entity.KhachHang;
 import mobileshop.entity.SanPham;
@@ -94,13 +95,12 @@ public class HoaDonController {
 		}
 	}
 
-	@RequestMapping("detail/{ma}")
-	public String detail(ModelMap model, @PathVariable("ma") Integer ma)
+	@ResponseBody
+	@RequestMapping("detail")
+	public List<CTHoaDon> detail(ModelMap model, @RequestParam("ma") Integer ma)
 	{
 		HoaDon order = hoaDonService.get(ma);
-		model.addAttribute("order", order);
-		
-		return "user/order/detail";
+		return (List<CTHoaDon>) order.getcTHoaDons();
 	}
 	
 	@ResponseBody
@@ -122,5 +122,13 @@ public class HoaDonController {
 		model.addAttribute("sanphams", list);
 		
 		return "user/product/list";
+	}
+	
+	@ResponseBody
+	@RequestMapping("get-order")
+	public HoaDon getOrder(ModelMap model, @RequestParam("ma") Integer ma)
+	{
+		HoaDon order = hoaDonService.get(ma);
+		return order;
 	}
 }

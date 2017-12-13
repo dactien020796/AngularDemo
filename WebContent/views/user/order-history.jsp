@@ -31,7 +31,7 @@
 						{{o.tongTien | number:0}} VND
 					</td>
 					<td>
-						<a href="#">Chi tiết</a>
+						<a ui-sref="order-detail({ id: o.ma })">Chi tiết</a>
 					</td>
 				</tr>
 		</tbody>
