@@ -13,9 +13,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="/DemoAngular/css/bootstrap.min.css" rel="stylesheet" />
 	<script src="/DemoAngular/js/jquery.min.js"></script>
 	<script src="/DemoAngular/js/bootstrap.min.js"></script>
-	<link href="/DemoAngular/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/DemoAngular/css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="/DemoAngular/css/menu.css" rel="stylesheet" type="text/css" media="all" />
 	<script src="/DemoAngular/js/script.js" type="text/javascript"></script>
@@ -54,7 +54,6 @@
 	<script src="/DemoAngular/script/user/controllers/edit-account.controller.js"></script>
 	<script src="/DemoAngular/script/user/controllers/forgot-password.controller.js"></script>
 	<script src="/DemoAngular/script/user/controllers/order-history.controller.js"></script>
-	
 	
 	<!-- Service -->
 	<script src="/DemoAngular/script/user/services/authentication.service.js"></script>

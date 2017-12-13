@@ -35,8 +35,9 @@ public class ProductController {
 		model.addAttribute("item", new SanPham());
 		return "admin/product/index";
 	}
-
-	@ModelAttribute("items")
+	
+	@ResponseBody
+	@RequestMapping("items")
 	public List<SanPham> getProductList() {
 		return sanPhamService.list();
 	}

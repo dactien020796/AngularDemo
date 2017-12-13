@@ -8,7 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import mobileshop.entity.CTHoaDon;
 import mobileshop.entity.HoaDon;
 import mobileshop.service.HoaDonService;
 
@@ -16,7 +19,7 @@ import mobileshop.service.HoaDonService;
 @RequestMapping("admin/order")
 public class OrderController {
 	@Autowired
-	HoaDonService hoaDonService;
+	HoaDonService hoaDonService; 
 	
 	@RequestMapping("index")
 	public String index(Model model) {
@@ -24,11 +27,19 @@ public class OrderController {
 		return "admin/order/index";
 	}
 	
-	@ModelAttribute("items")
+	// Xem hóa đơn
+	@ResponseBody
+	@RequestMapping("items")
 	public List<HoaDon> getOrderList() {
 		return hoaDonService.list();
 	}
 	
+	// Xem hóa đơn chi tiết
+	@ResponseBody
+	@RequestMapping("get-order-detail")
+	public List<CTHoaDon> getOrderDetail(@RequestParam("ma") Integer ma) {
+		return (List<CTHoaDon>) hoaDonService.get(ma).getcTHoaDons();
+	}
 	@RequestMapping("edit/{ma}")
 	public String edit(Model model,
 			@PathVariable("ma") Integer ma) {

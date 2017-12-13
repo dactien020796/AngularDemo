@@ -16,60 +16,92 @@ var app = angular.module('app', [
 app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider, $httpProvider) {
     $urlRouterProvider.otherwise('/');
     $stateProvider
-    	// Home
-        .state("home",
-            {
-                  url:"/" ,
-                  templateUrl: "/DemoAngular/views/admin/home.jsp",
-                  controller: "HomeCtrl",
-                  data: {
-                	  // không cần login vẫn vào đc
-                      requireLogin: false
-                  }
-            }
-        )
-        // Pages
-        .state("about",
-            {
-                url:"/about",
-                templateUrl: "/DemoAngular/views/about.jsp",
-                controller: "AboutCtrl",
-                data: {
-                    requireLogin: false
+//    	// Home
+//        .state("home",
+//            {
+//                  url:"/" ,
+//                  templateUrl: "/DemoAngular/views/admin/home.jsp",
+//                  controller: "HomeCtrl",
+//                  data: {
+//                	  // không cần login vẫn vào đc
+//                      requireLogin: false
+//                  }
+//            }
+//        )
+//        // Pages
+//        .state("about",
+//            {
+//                url:"/about",
+//                templateUrl: "/DemoAngular/views/about.jsp",
+//                controller: "AboutCtrl",
+//                data: {
+//                    requireLogin: false
+//                }
+//            }
+//        )
+//        .state("login",
+//            {
+//                url:"/login",
+//                templateUrl: "/DemoAngular/views/admin/login.jsp",
+//                controller: "LoginCtrl",
+//                data: {
+//                    requireLogin: false
+//                }
+//            }
+//        )
+//        // Home
+//        .state("product-detail",
+//            {
+//                  url:"/product-detail" ,
+//                  templateUrl: "/DemoAngular/views/admin/product-detail.jsp",
+//                  controller: "Product-Detail-Controller",
+//                  data: {
+//                      requireLogin: false
+//                  }
+//            }
+//        )
+//        .state("admin/index",
+//            {
+//                  url:"/admin/index" ,
+//                  templateUrl: "/DemoAngular/views/admin/index.jsp",
+//                  controller: "Admin-Controller",
+//                  data: {
+//                      requireLogin: false
+//                  }
+//            }
+//        )
+        
+        .state("hangsx",
+                {
+                      url:"/hangsx" ,
+                      templateUrl: "/DemoAngular/views/admin/hangsx.jsp",
+                      controller: "HangSXCtrl",
+                      data: {
+                          requireLogin: false
+                      }
                 }
-            }
-        )
-        .state("login",
+            )
+        .state("sanpham",
             {
-                url:"/login",
-                templateUrl: "/DemoAngular/views/admin/login.jsp",
-                controller: "LoginCtrl",
-                data: {
-                    requireLogin: false
-                }
-            }
-        )
-        // Home
-        .state("product-detail",
-            {
-                  url:"/product-detail" ,
-                  templateUrl: "/DemoAngular/views/admin/product-detail.jsp",
-                  controller: "Product-Detail-Controller",
+                  url:"/sanpham" ,
+                  templateUrl: "/DemoAngular/views/admin/sanpham.jsp",
+                  controller: "SanPhamCtrl",
                   data: {
                       requireLogin: false
                   }
             }
         )
-        .state("admin/index",
+        .state("hoadon",
             {
-                  url:"/admin/index" ,
-                  templateUrl: "/DemoAngular/views/admin/index.jsp",
-                  controller: "Admin-Controller",
+                  url:"/hoadon" ,
+                  templateUrl: "/DemoAngular/views/admin/hoadon.jsp",
+                  controller: "HoaDonCtrl",
                   data: {
                       requireLogin: false
                   }
             }
-        )
+        );
+           
        
 });
 

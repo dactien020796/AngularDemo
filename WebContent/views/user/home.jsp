@@ -5,6 +5,9 @@
 			
 	</style>
 </head>
+<style id = "nn-cart-fly">
+		
+</style>
 
 <div class="main" ng-controler="HomeCtrl">
     <div class="content">
