@@ -65,18 +65,23 @@ public class HoaDonController {
 	public String checkout(ModelMap model,
 			HttpSession session,
 			@RequestParam("nguoiNhan") String nguoiNhan,
-			@RequestParam("ngayDat") Date ngayDat,
-			@RequestParam("ngayGiao") Date ngayGiao,
+			@RequestParam("ngayDat") String ngayDat,
+			@RequestParam("ngayGiao") String ngayGiao,
 			@RequestParam("diaChi") String diaChi,
 			@RequestParam("tongTien") Integer tongTien,
 			@RequestParam("ghiChu") String ghiChu) {
 		HoaDon order = new HoaDon();
 		KhachHang user = (KhachHang) session.getAttribute("user");
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy"); 
 		order.setKhachHang(user);
 		order.setDiaChi(diaChi);
 		order.setGhiChu(ghiChu);
-		order.setNgayDat(ngayDat);
-		order.setNgayGiao(ngayGiao);
+		try {
+			order.setNgayDat(df.parse(ngayDat));
+			order.setNgayGiao(df.parse(ngayGiao));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		order.setNguoiNhan(nguoiNhan);
 		order.setTongTien(tongTien);
 		try {
@@ -98,15 +103,14 @@ public class HoaDonController {
 		return "user/order/detail";
 	}
 	
+	@ResponseBody
 	@RequestMapping("list")
-	public String list(ModelMap model, HttpSession session)
+	public List<HoaDon> list(ModelMap model, HttpSession session)
 	{
 		KhachHang user = (KhachHang) session.getAttribute("user");
 		
 		List<HoaDon> list = hoaDonService.getOrderListByUser(user);
-		model.addAttribute("orders", list);
-		
-		return "user/order/list";
+		return list;
 	}
 	
 	@RequestMapping("items")

@@ -23,7 +23,7 @@
 						Giá: 
 						<span> 
 <%-- 							<fmt:formatNumber type="number"	value="{{products.donGia}}" pattern="###,###,###" />  --%>
-							{{products.donGia}} VND
+							{{products.donGia | number:0 }} VND
 						</span>
 					</p>
 					<p>

@@ -26,7 +26,7 @@
 				
 				<p>
 					<span style="font-size: 20px"> 
-						{{p[2]}} VND
+						{{p[2] | number:0 }} VND
 					</span>
 				</p>
 				

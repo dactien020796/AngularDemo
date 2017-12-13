@@ -30,7 +30,7 @@
 				<tr ng-repeat="p in items">
 					<td>{{p.ten}}</td>
 					<td>
-						{{p.donGia}} VND
+						{{p.donGia | number:0 }} VND
 					</td>
 					<td>
 						{{p.khuyenMai}}
@@ -40,7 +40,7 @@
 							style="width: 50px" data-cart-update="{{p.ma}}">
 					</td>
 					<td class="amt">
-						{{p.soLuong * p.donGia * (1 - p.khuyenMai)}} VND
+						{{p.soLuong * p.donGia * (1 - p.khuyenMai) | number:0 }} VND
 					</td>
 					<td>
 						<button class="btn btn-sm btn-danger" data-cart-remove="{{p.ma}}"
@@ -52,7 +52,7 @@
 					<td></td>
 					<td></td>
 					<td>Tổng tiền:</td>
-					<td id="tongtien">
+					<td id="tongtien" >
 						{{amount}} VND
 					</td>
 				</tr>

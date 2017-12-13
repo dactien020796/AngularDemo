@@ -103,6 +103,29 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
                   }
             }
         )
+        // Forgot password
+        .state("forgot-password",
+            {
+                  url:"/forgot-password" ,
+                  templateUrl: "views/user/forgot-password.jsp",
+                  controller: "ForgotPasswordCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
+        // Order history
+        .state("order-history",
+            {
+                  url:"/order-history" ,
+                  templateUrl: "views/user/order-history.jsp",
+                  controller: "OrderHistoryCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
+
 });
 
 app.run(function ($rootScope, $state) {

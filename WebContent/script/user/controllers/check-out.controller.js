@@ -31,11 +31,11 @@ app.controller('CheckOutCtrl', function($rootScope, $scope, $location, $http, $s
 			"&ngayGiao=" +ngayGiao+ "&diaChi=" +diaChi+ "&tongTien=" +tongTien+ 
 			"&ghiChu=" + ghiChu;
 		$http.post(temp).success(function(data) {
-//			if (data == "Dat hang thanh cong") {
-//				window.location = "http://localhost:9999/DemoAngular";
-//			}
-			alert(data);
-			window.location = "http://localhost:9999/DemoAngular";
+			if (data == "Dat hang thanh cong") {
+				alert(data);
+				window.location = "http://localhost:9999/DemoAngular/#/order-history";
+			}
+			else alert(data);
 		});
 	};
 });

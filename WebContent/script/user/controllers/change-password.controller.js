@@ -5,11 +5,12 @@ app.controller('ChangePasswordCtrl', function($rootScope, $scope, $location, $ht
 		var temp = "account/change.php?password=" + password + "&password1=" + password1 +
 			"&password2=" + password2;
 		$http.post(temp).success(function(data) {
-//			if (data == "Cap nhat mat khau thanh cong") {
-//				location.reload();
-//			} else
-			alert(data);
-			location.reload();
+			if (data == "Cap nhat mat khau thanh cong") {
+				alert(data);
+				location.reload();
+			} else
+				alert(data);
+			
 		});
 	};
 });

@@ -182,11 +182,14 @@ public class AccountController {
 	/**
 	 * Quên mật khẩu
 	 * */
+	@ResponseBody
 	@RequestMapping("forgot")
-	public String forgot() {
-		return "user/account/forgot";
+	public KhachHang forgot(HttpSession session) {
+		KhachHang user = (KhachHang) session.getAttribute("user");
+		return user;
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="forgot", method=RequestMethod.POST)
 	public String forgot(ModelMap model,
 			@RequestParam("ma") String id,
@@ -197,20 +200,19 @@ public class AccountController {
 				//Gửi mail mật khẩu
 				try {
 					mailerService.send(email, "Forgot Password", user.getMatKhau());
-					model.addAttribute("message", "Mật khẩu của bạn đã được gửi qua email");
+					return "Mat khau cua ban da duoc gui qua email";
 				} catch (Exception e) {
 					// TODO: handle exception
-					model.addAttribute("message", "Không gửi được email");
+					return "Khong gui duoc mail";
 				}
 			}
 			else {
-				model.addAttribute("message", "Sai email đăng ký");
+				return "Sai email dang ky";
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
-			model.addAttribute("message", "Sai tên đăng nhập");
+			return "Sai ten dang nhap";
 		}
-		return "user/account/forgot";
 	}
 	
 	/**

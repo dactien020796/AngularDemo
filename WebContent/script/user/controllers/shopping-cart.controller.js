@@ -31,7 +31,9 @@ app.controller('ShoppingCartCtrl', function($rootScope, $scope, $location, $http
 		$.ajax({
 			url: "shopping-cart/get-amount.php",
 			success: function(response){
-				$("#tongtien").html(response + ' VND');
+				var value = response;
+				var num = value.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+				$("#tongtien").html(num + ' VND');
 			}
 		});
 	});
@@ -68,7 +70,9 @@ app.controller('ShoppingCartCtrl', function($rootScope, $scope, $location, $http
 					$.ajax({
 						url: "shopping-cart/get-amount.php",
 						success: function(response){
-							$("#tongtien").html(response + ' VND');
+							var value = response;
+							var num = value.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+							$("#tongtien").html(num + ' VND');
 						}
 					});
 				});

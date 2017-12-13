@@ -13,18 +13,20 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link href="/DemoAngular/css/bootstrap.min.css" rel="stylesheet" />
 	<script src="/DemoAngular/js/jquery.min.js"></script>
 	<script src="/DemoAngular/js/bootstrap.min.js"></script>
+	<link href="/DemoAngular/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/DemoAngular/css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="/DemoAngular/css/menu.css" rel="stylesheet" type="text/css" media="all" />
 	<script src="/DemoAngular/js/script.js" type="text/javascript"></script>
 	<script type="/DemoAngular/text/javascript" src="js/move-top.js"></script>
 	<script type="/DemoAngular/text/javascript" src="js/easing.js"></script>
-	<link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
-	<link href='//fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
+<!-- 	<link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'> -->
+<!-- 	<link href='//fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'> -->
 	<link href="/DemoAngular/css/flexslider.css" rel='stylesheet' type='text/css' />
 	<script src="https://cdn.jsdelivr.net/npm/moment@2.19.4/moment.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="/DemoAngular/js/bootstrap.min.2.js"></script>
 </head>
 <body ng-app="app">
 	<div class="wrap">
@@ -50,6 +52,9 @@
 	<script src="/DemoAngular/script/user/controllers/check-out.controller.js"></script>
 	<script src="/DemoAngular/script/user/controllers/change-password.controller.js"></script>
 	<script src="/DemoAngular/script/user/controllers/edit-account.controller.js"></script>
+	<script src="/DemoAngular/script/user/controllers/forgot-password.controller.js"></script>
+	<script src="/DemoAngular/script/user/controllers/order-history.controller.js"></script>
+	
 	
 	<!-- Service -->
 	<script src="/DemoAngular/script/user/services/authentication.service.js"></script>

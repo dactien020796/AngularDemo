@@ -7,11 +7,11 @@ app.controller('LoginCtrl', function($rootScope, $scope, $location, $http) {
 		//    $http.post
 		var temp = "account/login.php?id=" + id + "&password=" + password;
 		$http.post(temp).success(function(data) {
-//			if (data == "Dang nhap thanh cong") {
-//				window.location = "http://localhost:9999/DemoAngular";
-//			} else
-			alert(data);
-			window.location = "http://localhost:9999/DemoAngular";
+			if (data == "Dang nhap thanh cong") {
+				alert(data);
+				window.location = "http://localhost:9999/DemoAngular";
+			} else
+				alert(data);
 		});
 	};
 
