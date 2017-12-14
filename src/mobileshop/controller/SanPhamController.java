@@ -24,12 +24,13 @@ public class SanPhamController {
 	@Autowired
 	SanPhamService sanPhamService;
 	
-	@RequestMapping("list-by-hang/{ma}")
-	public String listByHang(ModelMap model, 
-			@PathVariable("ma") String ma) {
+	@ResponseBody
+	@RequestMapping("list-by-hang")
+	public List<SanPham> listByHang(ModelMap model, 
+			@RequestParam("ma") String ma) {
 		Hang hang = hangService.get(ma);
-		model.addAttribute("sanphams",hang.getSanPhams());
-		return "user/product/list";
+		//model.addAttribute("sanphams",hang.getSanPhams());
+		return (List<SanPham>) hang.getSanPhams();
 	}
 	
 	@ResponseBody

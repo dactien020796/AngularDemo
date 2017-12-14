@@ -40,6 +40,12 @@ public class HomeController {
 		//return "home/index";
 	}
 	
+	@ResponseBody
+	@RequestMapping("get-hangs")
+	public List<Hang> getHang() {
+		return hangService.list();
+	}
+	
 	@RequestMapping("about")
 	public String about() {
 		return "user/home/about";

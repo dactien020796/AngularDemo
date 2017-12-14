@@ -13,7 +13,7 @@
 					<input ng-model="keywords" type="text" value="Search for Products"
 						onfocus="this.value = '';"
 						onblur="if (this.value == '') {this.value = 'Search for Products';}">
-					<input ng-click="search(keywords)" type="submit" value="SEARCH">
+					<input ui-sref="search({ keywords: keywords })" type="submit" value="SEARCH">
 				</form>
 			</div>
 			<div class="shopping_cart">
@@ -81,7 +81,7 @@
 		</div>
 		<div class="clear"></div>
 	</div>
-	<div class="h_menu">
+	<div class="h_menu" ng-controller="HomeCtrl">
 		<a id="touch-menu" class="mobile-menu" href="#">Menu</a>
 		<nav>
 			<ul class="menu list-unstyled">
@@ -91,6 +91,9 @@
 					<ul class="sub-menu list-unstyled sub-menu2">
 						<div class="navg-drop-main">
 							<div class="nav-drop">
+								<li ng-repeat="h in hangs">
+									<a ui-sref="search-hang({ hang: h.ma })" ">{{h.ten}} </a>
+								</li>
 							</div>
 						</div>
 					</ul>

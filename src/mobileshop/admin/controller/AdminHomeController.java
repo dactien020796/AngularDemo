@@ -23,12 +23,17 @@ public class AdminHomeController {
 		return "admin/home/index";
 	}
 	
+//	@RequestMapping("login")
+//	public String login(@RequestParam(value="out", defaultValue="false") Boolean out,
+//			HttpSession httpSession) {
+//		if (out == true) {
+//			httpSession.removeAttribute("master");
+//		}
+//		return "admin/login/login";
+//	}
+	
 	@RequestMapping("login")
-	public String login(@RequestParam(value="out", defaultValue="false") Boolean out,
-			HttpSession httpSession) {
-		if (out == true) {
-			httpSession.removeAttribute("master");
-		}
+	public String login2() {
 		return "admin/login/login";
 	}
 	

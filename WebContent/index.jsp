@@ -55,6 +55,8 @@
 	<script src="/DemoAngular/script/user/controllers/forgot-password.controller.js"></script>
 	<script src="/DemoAngular/script/user/controllers/order-history.controller.js"></script>
 	<script src="/DemoAngular/script/user/controllers/order-detail.controller.js"></script>
+	<script src="/DemoAngular/script/user/controllers/search.controller.js"></script>
+	<script src="/DemoAngular/script/user/controllers/search-hang.controller.js"></script>
 	
 	<!-- Service -->
 	<script src="/DemoAngular/script/user/services/authentication.service.js"></script>

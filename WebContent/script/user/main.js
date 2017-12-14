@@ -136,6 +136,28 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
                   }
             }
         )
+        // Search
+        .state("search",
+            {
+                  url:"/search/:keywords" ,
+                  templateUrl: "views/user/search.jsp",
+                  controller: "SearchCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
+        // Search hang
+        .state("search-hang",
+            {
+                  url:"/search-hang/:hang" ,
+                  templateUrl: "views/user/search-hang.jsp",
+                  controller: "SearchHangCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
 
 });
 
