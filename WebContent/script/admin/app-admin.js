@@ -70,6 +70,38 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
                   }
             }
         )
+        
+        .state("hangsx",
+                {
+                      url:"/hangsx" ,
+                      templateUrl: "/DemoAngular/views/admin/hangsx.jsp",
+                      controller: "HangSXCtrl",
+                      data: {
+                          requireLogin: false
+                      }
+                }
+            )
+    .state("sanpham",
+            {
+                  url:"/sanpham" ,
+                  templateUrl: "/DemoAngular/views/admin/sanpham.jsp",
+                  controller: "SanPhamCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
+    .state("hoadon",
+            {
+                  url:"/hoadon" ,
+                  templateUrl: "/DemoAngular/views/admin/hoadon.jsp",
+                  controller: "HoaDonCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        );
+           
        
 });
 

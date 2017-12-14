@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import mobileshop.entity.Hang;
 import mobileshop.service.HangService;
@@ -24,43 +26,51 @@ public class ManufacturerController {
 		return "admin/manufacturer/index";
 	}
 	
-	@ModelAttribute("items")
+	@ResponseBody
+	@RequestMapping("items")
 	public List<Hang> getManufacturer() {
 		return hangService.list();
 	}
 	
+	@ResponseBody
 	@RequestMapping("insert")
 	public String insert(Model model,
-			@ModelAttribute("item") Hang hang) {
+			@RequestParam("ma") String ma,
+			@RequestParam("tenHang") String tenHang) {
+		Hang hang = new Hang();
+		hang.setMa(ma);
+		hang.setTen(tenHang);
 		try {
 			hangService.insert(hang);
-			model.addAttribute("message", "Thêm thành công");
-			return "redirect:/admin/manufacturer/index.php";
+			return "Them thanh cong";
 		} catch (Exception e) {
-			model.addAttribute("message", "Thêm thất bại");
+			
+			return "Them that bai";
 		}
-		return "admin/manufacturer/index";
+		
 	}
 	
-	@RequestMapping("edit/{ma}")
-	public String edit(Model model,
-			@PathVariable("ma") String ma) {
+	@ResponseBody
+	@RequestMapping("edit")
+	public Hang edit(Model model,
+			@RequestParam("ma") String ma) {
 		Hang hang = hangService.get(ma);
-		model.addAttribute("item", hang);
-		return "admin/manufacturer/index";
+		return hang;
 	}
 	
+	@ResponseBody
 	@RequestMapping("update")
 	public String update(Model model,
-			@ModelAttribute("item") Hang hang) {
+			@RequestParam("ma") String ma,
+			@RequestParam("tenHang") String tenHang) {
+		Hang hang = hangService.get(ma);
+		hang.setTen(tenHang);
 		try {
 			hangService.update(hang);
-			model.addAttribute("message", "Cập nhật thành công");
-			return "redirect:/admin/manufacturer/index.php";
+			return "Sua thanh cong";
 		} catch (Exception e) {
-			model.addAttribute("message", "Cập nhật thất bại");
+			return "Sua that bai";
 		}
-		return "admin/manufacturer/index";
 	}
 	
 	@RequestMapping("delete")
