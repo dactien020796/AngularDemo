@@ -17,7 +17,7 @@ yy<%@page contentType="text/html" pageEncoding="UTF-8"%>
 	</a></li>
 </ul>
 
-<div class="tab-content">
+<div class="tab-content" ng-controller="SanPhamCtrl">
 	<div id="form" class="tab-pane fade in active">
 		<!-- FORM -->
 		<form>
@@ -39,7 +39,7 @@ yy<%@page contentType="text/html" pageEncoding="UTF-8"%>
 				<label>Hãng</label>
 				<%-- 				<form:select ng-model="hang.ma" class="form-control" --%>
 				<%-- 					items="${sitems}" itemValue="ma" itemLabel="ten" /> --%>
-				<select ng-model="" class="form-control">
+				<select class="form-control">
 
 					<option>1</option>
 					<option>2</option>
@@ -136,7 +136,7 @@ yy<%@page contentType="text/html" pageEncoding="UTF-8"%>
 			</div>
 		</form>
 	</div>
-	<div id="gridview" class="tab-pane fade" ng-controller="SanPhamCtrl">
+	<div id="gridview" class="tab-pane fade">
 		<!-- TABLE -->
 		<!-- 		<tr ng-repeat="hang in hangsx" > -->
 		<!-- 						<td>{{hang.ma}}</td> -->
@@ -165,7 +165,7 @@ yy<%@page contentType="text/html" pageEncoding="UTF-8"%>
 					<td>{{sp.ma}}</td>
 					<td>{{sp.ten}}</td>
 					<td>{{sp.hang.ten}}</td>
-					<td>{{sp.gia | number:0}} VND</td>
+					<td>{{sp.donGia | number:0}} VND</td>
 
 					<td>{{sp.soLuong}}</td>
 					<td>{{sp.khuyenMai}}</td>
