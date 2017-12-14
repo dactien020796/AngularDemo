@@ -100,6 +100,66 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
                       requireLogin: false
                   }
             }
+        )
+    .state("doanhthusp",
+            {
+                  url:"/doanhthusp" ,
+                  templateUrl: "/DemoAngular/views/admin/doanhthu-sanpham.jsp",
+                  controller: "DoanhThuSPCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
+    .state("doanhthuhang",
+            {
+                  url:"/doanhthuhang" ,
+                  templateUrl: "/DemoAngular/views/admin/doanhthu-theohang.jsp",
+                  controller: "DoanhThuHangCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
+    .state("doanhthukh",
+            {
+                  url:"/doanhthukh" ,
+                  templateUrl: "/DemoAngular/views/admin/doanhthu-khachhang.jsp",
+                  controller: "DoanhThuKhachHangCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
+    .state("doanhthuthang",
+            {
+                  url:"/doanhthuthang" ,
+                  templateUrl: "/DemoAngular/views/admin/doanhthu-theothang.jsp",
+                  controller: "DoanhThuThangCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
+    .state("doanhthunam",
+            {
+                  url:"/doanhthunam" ,
+                  templateUrl: "/DemoAngular/views/admin/doanhthu-theonam.jsp",
+                  controller: "DoanhThuNamCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
+    .state("doanhthuquy",
+            {
+                  url:"/doanhthuquy" ,
+                  templateUrl: "/DemoAngular/views/admin/doanhthu-theoquy.jsp",
+                  controller: "DoanhThuQuyCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
         );
            
        

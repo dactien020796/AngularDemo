@@ -36,6 +36,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+<!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
+<script type="text/javascript" src="/DemoAngular/js/loader.js"></script>
 </head>
 <body ng-app="app">
 	<!-- Vendor: Angular, followed by our custom Javascripts -->
@@ -52,6 +54,25 @@
 		src="/DemoAngular/script/admin/controllers/sanpham.controller.js"></script>
 	<script
 		src="/DemoAngular/script/admin/controllers/hoadon.controller.js"></script>
+		
+	<script
+		src="/DemoAngular/script/admin/controllers/doanhthu-sanpham.controller.js"></script>
+	
+	<script
+		src="/DemoAngular/script/admin/controllers/doanhthu-theohang.controller.js"></script>
+		
+	<script
+		src="/DemoAngular/script/admin/controllers/doanhthu-khachhang.controller.js">
+	</script>
+	<script
+		src="/DemoAngular/script/admin/controllers/doanhthu-theothang.controller.js">
+	</script>
+	<script
+		src="/DemoAngular/script/admin/controllers/doanhthu-theonam.controller.js">
+	</script>
+	<script
+		src="/DemoAngular/script/admin/controllers/doanhthu-theoquy.controller.js">
+	</script>
 
 	<div id="wrapper" style="height: 725px;">
 
@@ -98,19 +119,24 @@
 								class="fa fa-bar-chart-o fa-fw"></i> Quản lý sản phẩm</a></li>
 						<li><a ui-sref="hoadon"><i class="fa fa-table fa-fw"></i>
 								Quản lý hóa đơn</a></li>
+								
 						<li><a href="admin/inventory/byhang.php"><i
 								class="fa fa-edit fa-fw"></i> Thống kê sản phẩm</a></li>
-						<li><a href="admin/revenue/bysanpham.php"><i
+								
+						<li><a ui-sref="doanhthusp"><i
 								class="fa fa-wrench fa-fw"></i> Doanh thu theo sản phẩm</a></li>
-						<li><a href="admin/revenue/byhang.php"><i
+						<li><a ui-sref="doanhthuhang"><i
 								class="fa fa-sitemap fa-fw"></i> Doanh thu theo hãng</a></li>
-						<li><a href="admin/revenue/bykhachhang.php"><i
+						<li><a ui-sref="doanhthukh"><i
 								class="fa fa-files-o fa-fw"></i> Doanh thu theo khách hàng</a></li>
-						<li><a href="admin/revenue/byyear.php"><i
+								
+						<li><a ui-sref="doanhthunam"><i
 								class="fa fa-files-o fa-fw"></i> Doanh thu theo năm</a></li>
-						<li><a href="admin/revenue/bymonth.php"><i
+								
+						<li><a ui-sref="doanhthuthang"><i
 								class="fa fa-files-o fa-fw"></i> Doanh thu theo tháng</a></li>
-						<li><a href="admin/revenue/byquarter.php"><i
+								
+						<li><a ui-sref="doanhthuquy"><i
 								class="fa fa-files-o fa-fw"></i> Doanh thu theo quý</a></li>
 					</ul>
 				</div>

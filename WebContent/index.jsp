@@ -27,6 +27,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/moment@2.19.4/moment.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<script src="/DemoAngular/js/bootstrap.min.2.js"></script>
+<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-chart/1.0.0-beta.1/ng-google-chart.js" type="text/javascript"></script> -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body ng-app="app">
 	<div class="wrap">
