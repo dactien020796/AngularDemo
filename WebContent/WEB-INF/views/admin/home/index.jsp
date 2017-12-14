@@ -100,7 +100,7 @@
 								Quản lý hóa đơn</a></li>
 						<li><a href="admin/inventory/byhang.php"><i
 								class="fa fa-edit fa-fw"></i> Thống kê sản phẩm</a></li>
-						<li><a href="admin/revenue/bysanpham.php"><i
+						<li><a ui-sref="doanhthusp"><i
 								class="fa fa-wrench fa-fw"></i> Doanh thu theo sản phẩm</a></li>
 						<li><a href="admin/revenue/byhang.php"><i
 								class="fa fa-sitemap fa-fw"></i> Doanh thu theo hãng</a></li>

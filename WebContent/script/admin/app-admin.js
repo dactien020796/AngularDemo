@@ -100,7 +100,28 @@ app.config( function ($stateProvider, $urlRouterProvider, jwtInterceptorProvider
                       requireLogin: false
                   }
             }
-        );
+        )
+    .state("doanhthusp",
+            {
+                  url:"/doanhthusp" ,
+                  templateUrl: "/DemoAngular/views/admin/doanhthu-sanpham.jsp",
+                  controller: "DoanhThuSPCtrl",
+                  data: {
+                      requireLogin: false
+                  }
+            }
+        )
+        
+        .state("doanhthuhang",
+                {
+                      url:"/doanhthuhang" ,
+                      templateUrl: "/DemoAngular/views/admin/doanhthu-theohang.jsp",
+                      controller: "DoanhThuHangCtrl",
+                      data: {
+                          requireLogin: false
+                      }
+                }
+            );
            
        
 });
